@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Jornada da Serpente - Python RPG</title>
+
+    <!--style -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body class="antialiased">
+
+    <!-- Header / HUD -->
+    <header class="fixed top-0 left-0 w-full bg-slate-900/90 border-b border-slate-700 z-50 px-4 py-3 flex justify-between items-center shadow-lg backdrop-blur-sm">
+        <div class="flex items-center gap-3">
+            <i class="fa-brands fa-python text-3xl text-yellow-400"></i>
+            <div>
+                <h1 class="rpg-font text-xs md:text-sm text-yellow-400">A Jornada da Serpente</h1>
+                <p class="text-xs text-slate-400">Lógica de Programação</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <div class="text-right hidden md:block">
+                <p class="text-xs text-slate-400">Progresso</p>
+                <div class="w-32 h-3 bg-slate-800 rounded-full mt-1 border border-slate-600 overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-gradient-to-r from-blue-500 to-green-500 w-0 transition-all duration-500"></div>
+                </div>
+            </div>
+            <button onclick="resetProgress()" class="text-xs border border-red-500 text-red-400 hover:bg-red-500/10 px-3 py-1 rounded transition-colors" title="Reiniciar Jogo">
+                <i class="fa-solid fa-skull"></i> Reset
+            </button>
+        </div>
+    </header>
+
+    <!-- Área do Mapa -->
+    <main class="map-container relative pt-24 pb-20 flex flex-col items-center">
+        
+        <!-- SVG Layer para desenhar as linhas (Fica atrás dos nós) -->
+        <svg id="map-svg" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0 overflow-visible">
+            <!-- Caminhos gerados via JS -->
+        </svg>
+
+        <!-- Container onde os nós serão injetados -->
+        <div id="nodes-container" class="relative w-full max-w-4xl min-h-[1200px] mx-auto z-10">
+            <!-- Os nós serão gerados aqui pelo JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- Modal de Missão -->
+    <div id="quest-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 modal-overlay bg-black/80">
+        <div class="bg-slate-800 border-2 border-slate-600 rounded-lg max-w-2xl w-full shadow-2xl transform transition-all scale-100 relative overflow-hidden">
+            
+            <!-- Modal Header -->
+            <div class="bg-slate-900 p-4 border-b border-slate-700 flex justify-between items-center">
+                <h2 id="modal-title" class="rpg-font text-yellow-400 text-sm md:text-base">Nome da Missão</h2>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 max-h-[70vh] overflow-y-auto">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="bg-slate-700 p-3 rounded-lg hidden md:block">
+                        <i id="modal-icon" class="fa-solid fa-scroll text-3xl text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Objetivo:</h3>
+                        <p id="modal-desc" class="text-slate-300 leading-relaxed text-sm md:text-base">Descrição da missão...</p>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="text-xs font-bold text-slate-500 uppercase mb-2">Pergaminho de Sabedoria (Código)</h4>
+                    <pre class="code-block p-4 rounded text-xs md:text-sm overflow-x-auto text-green-400 font-mono"><code id="modal-code">print("Hello World")</code></pre>
+                </div>
+
+                <div class="bg-blue-900/20 border border-blue-500/30 p-4 rounded mb-4">
+                    <h4 class="text-blue-400 font-bold text-sm mb-1"><i class="fa-solid fa-lightbulb"></i> Desafio Prático</h4>
+                    <p id="modal-challenge" class="text-sm text-slate-300">O que o usuário deve fazer mentalmente ou em sua IDE.</p>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 bg-slate-900 border-t border-slate-700 flex justify-end gap-3">
+                <button onclick="closeModal()" class="px-4 py-2 text-slate-400 hover:text-white text-sm transition-colors">Voltar</button>
+                <button onclick="completeQuest()" class="px-6 py-2 bg-green-600 hover:bg-green-500 text-white font-bold rounded shadow-lg hover:shadow-green-500/50 transition-all text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-check"></i> Completar Missão
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensagem de Vitória (Toast) -->
+    <div id="victory-toast" class="fixed bottom-5 right-5 bg-green-600 text-white px-6 py-4 rounded shadow-2xl transform translate-y-24 transition-transform duration-300 z-[110] flex items-center gap-3">
+        <i class="fa-solid fa-trophy text-yellow-300 text-xl"></i>
+        <div>
+            <h4 class="font-bold text-sm">Nível Completado!</h4>
+            <p class="text-xs">O próximo desafio foi desbloqueado.</p>
+        </div>
+    </div>
+
+</body>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- interação-->
+<script src="script.js"></script>
+
+</html>
