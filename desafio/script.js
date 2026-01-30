@@ -81,7 +81,6 @@ const gameLevels = [
                 challenge: "Crie um loop que conta de 10 até 0 (contagem regressiva).",
                 unlocks: [9]
             },
-            ,
             {
                 id: 9,
                 title: "A Forja das Funções",
@@ -283,6 +282,7 @@ function openLevelModal(level) {
             if(playerProgress.completed.includes(level.id)) {
                 btn.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Refazer';
                 btn.className = "px-6 py-2 bg-slate-600 hover:bg-slate-500 text-white font-bold rounded shadow-lg transition-all text-sm flex items-center gap-2";
+                
             } else {
                 btn.innerHTML = '<i class="fa-solid fa-check"></i> Completar Missão';
                 btn.className = "px-6 py-2 bg-green-600 hover:bg-green-500 text-white font-bold rounded shadow-lg hover:shadow-green-500/50 transition-all text-sm flex items-center gap-2";
@@ -301,14 +301,16 @@ function completeQuest() {
 
             // Encontrar nível atual
             
-            const level = gameLevels.find(l => l.id === currentActiveLevelId);
-            console.log(l.id)
+            const level = gameLevels.find(level => level.id === currentActiveLevelId);
+           
 
             
             // Adicionar aos completados se não estiver
             if (!playerProgress.completed.includes(level.id)) {
                 playerProgress.completed.push(level.id);
                 showToast();
+
+               
             }
 
             // Desbloquear próximos
@@ -336,3 +338,6 @@ function showToast() {
 
         // Start
 initGame();
+var confettiSettings = { target: 'my-canvas' };
+var confetti = new ConfettiGenerator(confettiSettings);
+confetti.render();
