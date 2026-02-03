@@ -102,6 +102,23 @@ ul #anima_4:hover{
     transition: all 0.5s ease;
 }
 
+
+.section-principal{
+    align-items: center;
+    padding: 30px;
+}
+
+.title-p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-size: 60px;
+    align-items: center;
+    margin-left: 40%;
+}
+
+
+
+
 section {
     border: 2px solid cyan;
     margin: 20px;
@@ -109,22 +126,64 @@ section {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 4px 4px 8px green;
+    width: 400px;
+    height: 500px;
 }
 
+section img {
+    width: 65%;
+    border-radius: 1%;
+}
 
+.sub-section{
+    top: -200px;
+    left: 30%;
+    width: 700px;
+   
+
+    
+}
 h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
+
 }
 
 p {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: gray;
+    font-size: 15px;
+    padding: 2%;
+    height: 170px;
+    width: 400px;
+
+}
+
+.sub-title-p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgba(182, 181, 181, 0.726);
+    font-size: 17px;
+    padding: 1%;
+    height: 170px;
+    width: 1300px;   
+    margin-left: 15%;
 }
 
 h2 {
      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
      color: white;
+}
+
+main{
+    align-items: center;
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    padding-left: 25%;
+}
+
+.logo-icon-img{
+    width: 70%;
 }
 
 
