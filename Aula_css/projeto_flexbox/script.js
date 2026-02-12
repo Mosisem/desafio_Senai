@@ -21,10 +21,29 @@ for (let i = 1; i <= itens; i++) {
         )">
             Item ${i}
         </div>
-        <div>
+        <div class="content-box">
             <h4>Card Exemplo ${i} </h4>
             <p>Observe como este elemento se comporta ao aletrar entre os modos de exibição</p>
         </div>
     `;
     demoContainer.appendChild(iten)
+}
+
+function setMode(mode){
+    if (mode ===  'flex'){
+        demoContainer.className = "demo-container mode-flex";
+        btnFlex.classList.add("active-grid");
+        btnGrid.classList.remove("active-grid");
+
+        txtAxis.inert = "Unidimensional (Linha)";
+        txtIdeal.innerText = " O layout é calculado item a item. Ótimo para distribuir espaço em uma limha";
+    } else {
+        demoContainer.className = "demo-container mode-grid";
+        btnGrid.classList.add("active-grid");
+        btnFlex.classList.remove("active-flex");
+
+        txtAxis.innerText = "Bidimensional (Grade)"
+        txtAxis.innerText = "Define a estrutura primeiro. Alinhamento rigoroso de coluna e linhas"; 
+
+    }
 }
