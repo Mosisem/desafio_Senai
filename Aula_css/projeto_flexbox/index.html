@@ -1,86 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <script src="./script.js" defer></script>
+    <title>FlexBOX</title>
 </head>
 <body>
     <main class="wrapper">
         <header>
-            <h1>
-                Flex Box vs css Grid
-            </h1>
-
+            <h1>Flexbox vs CSS Grid</h1>
             <p>
-                Uma comparação visula e tecnita dos dois sistemas de layout
+                Uma comparação visual e técnica dos sistemas de layout
             </p>
         </header>
-
-        <div>
-            <section>
-
-                <h3>
-                    <span></span> Escolha o layout
-                </h3>
-
-                <div>
-                    <button>Flex Box</button>
-                    <button>Grid</button>
-                </div>
-
-            </section>
-
-            <section>
-
-                <h3>
-                    <span></span> Resumo do comportamento
-                </h3>
-
-                <div>
-
-                    <p>
-                       Unidimencional
-                    </p>
-
-                    <p>
-                        O layout é calculado item a item. ótimo para distribuir espaço em uma limha
-                    </p>
+        <div class="controls-panel">
+            <section class="controls-card">
+                <h3><span class="dot" style="background: var(--primary);"></span>Escolher Layout</h3>
+                <div class="button-group">
+                    <button id="btnFlex" onclick="setMode('flex')" class="btn active-flex">FlexBox</button>
+                    <button id="btnGrid" onclick="setMode('grid')" class="btn">Grid</button>
                 </div>
             </section>
-
-            <section>
-                <!-- gerado dinamicamente -->
+            <section class="controls-card">
+                <h3><span class="dot" style="background: #94a3b8;"></span>Resumo do Comportamento</h3>
+                <div id="statusInfo">
+                    <p id="txtAxis" style="margin: 5px 0; font-weight: 600;">Unidimencional</p>
+                    <p id="txtIdeal" style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">O layout é calculado item a item. Ótimo para distribuir espaço em uma linha</p>
+                </div>
             </section>
-
-            <footer>
-                <div>
-                    <h4>
-                        O poder do Flex box
-                    </h4>
+            <section id="demoContainer" class="demo-container mode-flex">
+                <!-- Gerado dinamicamente-->
+            </section>
+            <footer class="info-footer">
+                <div class="info-box info-flex">
+                    <h4>O poder do flexbox</h4>
                     <ul>
-                        <li> foco no <strong>conteúdo</strong></li>
+                        <li>Foco no <strong>conteúdo</strong></li>
                         <li>Ideal para componentes pequenos (menus, botões)</li>
-                        <li>Facilidade em alinhar itens em um unico eixo</li>
-                        <li>Flexibilidade: itens podem crescer e encolher dinamicamente.</li>
+                        <li>Facilidade em alinhar itens em um único eixo.</li>
+                        <li>Flexibilidade: itens podem crescer e encolher dinâmicamente.</li>
                     </ul>
                 </div>
-
-                <div>
-                    <h4>
-                        O poder do Grid
-                    </h4>
+                <div class="info-box info-grid">
+                    <h4>O poder do Grid</h4>
                     <ul>
-                        <li> foco no <strong>conteúdo</strong> (container)</li>
-                        <li>Ideal para estrutruras de paginas completas</li>
-                        <li>Controle total de linhas e colunas simultaneamente</li>
-                        <li>Perfeito para galerias onde o açinhamento vertical importa.</li>
+                        <li>Foco no <strong>layout</strong> (container).</li>
+                        <li>Ideal para estruturas de páginas completas.</li>
+                        <li>Controle total de linhas e colunas simultâneamente.</li>
+                        <li>Perfeito para galerias onde o alinhamento vertical importa.</li>
                     </ul>
                 </div>
             </footer>
         </div>
     </main>
-    
 </body>
 </html>
