@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula js DOM</title>
+</head>
+<body>
+    <p id="paragrafo_mx" class="paragraf_ol">hello js</p>
+
+    <h3 id="titulo_h3" class="classe_h3">Texto P/ botão</h3>
+
+    <button type="button" onclick="mudar()">Mude o Texto </button>
+    <button type="button" onclick="mudar_p()">Mude o parágrafo </button>
+
+    <input type="texto" id="valor_digitado"> 
+    <button onclick="aviso()">
+        valor do input
+    </button>
+
+    <ul id="lista_para adicionar">
+
+    </ul>
+    <button onclick="adicionar_item()">
+        adicionar li
+    </button>
+
+    <button onclick="Remova_item()">
+        remover li
+    </button>
+
+    <img src="img/images.jpg" alt="" id="fundo_img" style="width: 10%;">
+    <button onclick="mudar_img()">
+        mudar imagem
+    </button>
+
+    <div  style="border: solid 2px; padding: 20px;">
+        <div id="verificador_de_div" style="border: solid 2px; padding: 20px;">
+
+        </div>
+        <button onclick="verificando_div()">
+            verificar div
+        </button>
+    </div>
+
+
+    <h2>8. Contador</h2>
+<p id="contador">0</p>
+<button id="mais">+</button>
+
+<h2>9. Clique para esconder</h2>
+<div id="esconder" style="background:lightblue;padding:10px;width:150px;">
+Clique para sumir
+</div>
+
+<h2>10. Trocar texto de todos &lt;p&gt;</h2>
+<button id="trocarP">Trocar textos</button>
+
+<h2>11. Número aleatório</h2>
+<button id="randomBtn">Gerar</button>
+<p id="random"></p>
+
+<h2>12. Validação formulário</h2>
+<form id="form">
+<input type="text" id="nome" placeholder="Nome">
+<button type="submit">Enviar</button>
+<button type="button" id="limpar">Limpar</button>
+</form>
+
+<h2>13. Mouseover imagem</h2>
+<img id="imagem" src="img/images.jpg">
+
+<h2>15. Modo Noturno</h2>
+<button id="modo">Ativar Modo Noturno</button>
+
+<h2>16. Cronômetro</h2>
+<p id="cronometro">0</p>
+
+<h2>18. Inserir &lt;p&gt; antes da div</h2>
+<div id="referencia">Div referência</div>
+<button id="inserirP">Inserir Parágrafo</button>
+
+<h2>19. Select</h2>
+<select id="select">
+<option value="">Escolha</option>
+<option value="HTML">HTML</option>
+<option value="CSS">CSS</option>
+<option value="JS">JavaScript</option>
+</select>
+<p id="valorSelect"></p>
+
+<h2>23. Accordion</h2>
+<div class="accordion-title">Clique aqui</div>
+<div class="accordion-content">Conteúdo escondido</div>
+
+<h2>24. Duplo clique</h2>
+<div id="duplo" style="background:orange;width:100px;height:50px;"></div>
+
+<h2>26. Cor baseada no input</h2>
+<input type="text" id="corInput" placeholder="Digite uma cor">
+<p id="textoCor">Texto colorido</p>
+
+<h2>27. Checkbox termos</h2>
+<input type="checkbox" id="termos"> Aceito os termos
+<button id="enviar" disabled>Enviar</button>
+
+<h2>28. Relógio Digital</h2>
+<p id="relogio"></p>
+
+<h2>29. Criar Tabela</h2>
+<button id="criarTabela">Criar tabela 2x2</button>
+<div id="tabelaDiv"></div>
+
+<h2>30. Curtir</h2>
+<button id="curtir">👍 Curtir</button>
+<span id="likes">0</span>
+
+
+
+
+
+
+
+    <ul>
+        <li id="liste"> <input type="checkbox" id="caixa" name="primeiro_to_do_liste" onclick="mudar_lista1()" >Estudar a Manipulação de DOM com js</li>
+        <li id="liste"> <input type="checkbox" id="caixa" name="primeiro_to_do_liste" onclick="mudar_lista2()">Compreender conceitos de Componetes</li>
+        <li id="liste"> <input type="checkbox" id="caixa" name="primeiro_to_do_liste" onclick="mudar_lista3()"> Estudar algumas APIs</li>
+    </ul>
+</body>
+</html>
+<script src="lista_Dom.js"></script>
